@@ -19,20 +19,34 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/Login",(req,res)=>{
-    let UserID = req.body.ID
-    let pass = req.body.Password
     fs.readFile('data.json','utf-8',(err,data)=>{
         if(err){console.log(err)}else{
+            let UserID = req.body.ID
+            let pass = req.body.Password        
             let objdata = JSON.parse(data)
-            
+            if (objdata.password == pass, objdata.userName == UserID) {
+                res.send("Login Completed")
+                // app.get("/Login",(req,res)=>{
+                //     res.render("loginCompt")
+                // })
+            }
+            else{
+                // res.send("Please check your ID again")
+                res.redirect("/Login")
+                
+                // app.get("/Login",(req,res)=>{
+                //     res.render("loginPage")
+                // })
+            }
             
             console.log(objdata)
+            console.log(UserID)
+            console.log(pass)
             
         }
     })
-    console.log(UserID)
-    console.log(pass)
-    res.send("Login Completed")
+    
+    // res.send("Login Completed")
     // console.log("Please check your ID again")
 
 
