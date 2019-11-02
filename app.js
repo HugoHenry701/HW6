@@ -24,7 +24,7 @@ app.post("/Login",(req,res)=>{
             let UserID = req.body.ID
             let pass = req.body.Password        
             let objdata = JSON.parse(data)
-            if (objdata.password == pass, objdata.userName == UserID) {
+            if (objdata.password == pass , objdata.userName == UserID) {
                 res.send("Login Completed")
                 // app.get("/Login",(req,res)=>{
                 //     res.render("loginCompt")
@@ -32,7 +32,7 @@ app.post("/Login",(req,res)=>{
             }
             else{
                 // res.send("Please check your ID again")
-                res.redirect("/Login")
+                res.redirect("/###")
                 
                 // app.get("/Login",(req,res)=>{
                 //     res.render("loginPage")
@@ -54,6 +54,10 @@ app.post("/Login",(req,res)=>{
  
 app.get("/Login",(req,res)=>{
     res.render("loginPage")
+})
+
+app.get("/###",(req,res)=>{
+    res.render("loginFailed")
 })
 
 app.listen(701,(err)=>{
