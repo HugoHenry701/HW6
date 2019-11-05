@@ -32,7 +32,10 @@ app.post("/Login",(req,res)=>{
             }
             else{
                 // res.send("Please check your ID again")
-                res.redirect("/OC")
+                res.render("loginPage",{
+                    Loginstatus: "Please check your ID and password again!!!"
+                })
+                
                 
                 // app.get("/Login",(req,res)=>{
                 //     res.render("loginPage")
@@ -56,9 +59,9 @@ app.get("/Login",(req,res)=>{
     res.render("loginPage")
 })
 
-app.get("/OC",(req,res)=>{
-    res.render("loginFailed")
-})
+// app.get("/OC",(req,res)=>{
+//     res.render("loginFailed")
+// })
 
 app.listen(701,(err)=>{
     if(err){console.log(err)}else{
@@ -67,5 +70,8 @@ app.listen(701,(err)=>{
 })
 
 app.use(express.static("public"))
+// function myfunc(){
+//     alert("coi chung t do :v")
+// }
 
 
